@@ -5,6 +5,10 @@ const Route = use('Route');
 
 Route.get('/', () => ({ greeting: 'Hello world in JSON' }));
 
-Route.post('/sessions', 'SessionController.store');
-Route.post('/forgot', 'ForgotPasswordController.store');
-Route.post('/reset', 'ResetPasswordController.store');
+Route.post('/sessions', 'SessionController.store').validator('Session');
+Route.post('/forgot', 'ForgotPasswordController.store').validator(
+  'ForgotPassword'
+);
+Route.post('/reset', 'ResetPasswordController.store').validator(
+  'ResetPassword'
+);
