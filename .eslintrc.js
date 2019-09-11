@@ -1,27 +1,27 @@
 module.exports = {
   env: {
+    commonjs: true,
     es6: true,
-    node: true
+    node: true,
   },
-  extends: ['airbnb-base'],
+  extends: ['airbnb-base', 'prettier'],
   globals: {
     use: false,
     Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly'
+    SharedArrayBuffer: 'readonly',
   },
+  plugins: ['prettier'],
   parserOptions: {
     ecmaVersion: 2018,
-    sourceType: 'module'
+    sourceType: 'module',
   },
   rules: {
+    'prettier/prettier': 'error',
     strict: 'off',
-    semi: ['error', 'never'],
-    'comma-dangle': ['error', 'never'],
-    'space-before-function-paren': ['error', { anonymous: 'never', named: 'always' }],
     'class-methods-use-this': 'off',
-    'object-curly-newline': ['error', { multiline: true }],
+    'consistent-return': 'off',
     'global-require': 'off',
     'arrow-parens': ['error', 'as-needed'],
-    'no-param-reassign': ['error', { props: false }]
-  }
-}
+    'no-param-reassign': ['error', { props: false }],
+  },
+};
