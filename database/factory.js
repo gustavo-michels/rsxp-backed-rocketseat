@@ -25,3 +25,10 @@ Factory.blueprint('App/Models/Token', (faker, i, data = {}) => ({
   token: faker.string({ length: 24 }),
   type: data.type || 'refreshtoken',
 }));
+
+Factory.blueprint('App/Models/Workshop', (faker, i, data = {}) => ({
+  title: faker.sentence({ words: 7 }),
+  description: faker.paragraph(),
+  section: faker.integer({ min: 1, max: 3 }),
+  ...data,
+}));

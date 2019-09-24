@@ -12,3 +12,8 @@ Route.post('/forgot', 'ForgotPasswordController.store').validator(
 Route.post('/reset', 'ResetPasswordController.store').validator(
   'ResetPassword'
 );
+
+Route.group(() => {
+  Route.get('/workshops', 'WorkshopController.index');
+  Route.post('/workshops', 'WorkshopController.store').validator('Workshop');
+}).middleware('auth');

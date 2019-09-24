@@ -2,7 +2,7 @@
 
 const { test, trait } = use('Test/Suite')('FortotPassword');
 
-const { subHours, format } = require('date-fns');
+const { subHours, subMinutes, format } = require('date-fns');
 
 /** @typedef {import('@adonisjs/lucid/src/Factory')} Factory */
 const Database = use('Database');
@@ -77,7 +77,10 @@ test('it canoot reset password after 2h of forgot password request', async ({
 
   await user.tokens().save(userToken);
 
-  const dateWithSub = format(subHours(new Date(), 2), 'yyyy-MM-dd HH:mm:ss');
+  const dateWithSub = format(
+    subMinutes(subHours(new Date(), 2), 1),
+    'yyyy-MM-dd HH:mm:ss'
+  );
 
   await Database.table('tokens')
     .where('token', userToken.token)
