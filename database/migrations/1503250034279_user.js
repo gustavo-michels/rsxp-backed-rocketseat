@@ -8,6 +8,8 @@ class UserSchema extends Schema {
     this.create('users', table => {
       table.increments();
       table.string('name').notNullable();
+      table.string('title');
+      table.string('avatar');
       table.string('bio');
       table.string('github');
       table.string('linkedin');

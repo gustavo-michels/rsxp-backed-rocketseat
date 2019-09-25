@@ -13,7 +13,7 @@ class Workshop {
       title: 'required',
       description: 'required',
       section: [rule('required'), rule('in', [1, 2, 3])],
-      user_id: 'required|exists:users,id',
+      user_id: 'exists:users,id',
     };
   }
 
