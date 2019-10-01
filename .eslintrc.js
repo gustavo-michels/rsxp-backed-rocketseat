@@ -18,6 +18,7 @@ module.exports = {
   rules: {
     'prettier/prettier': 'error',
     strict: 'off',
+    camelcase: 'off',
     'class-methods-use-this': 'off',
     'consistent-return': 'off',
     'global-require': 'off',

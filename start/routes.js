@@ -26,4 +26,13 @@ Route.group(() => {
     'Workshop'
   );
   Route.delete('/workshops/:id', 'WorkshopController.destroy');
+
+  Route.post(
+    '/workshops/:workshop_id/subscriptions',
+    'SubscriptionController.store'
+  );
+  Route.delete(
+    '/workshops/:workshop_id/subscriptions',
+    'SubscriptionController.destroy'
+  );
 }).middleware('auth');

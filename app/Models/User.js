@@ -38,6 +38,12 @@ class User extends Model {
   workshops() {
     return this.hasMany('App/Models/Workshop');
   }
+
+  subscriptions() {
+    return this.belongsToMany('App/Models/Workshop')
+      .pivotTable('subscriptions')
+      .withTimestamps();
+  }
 }
 
 module.exports = User;
